@@ -1,0 +1,556 @@
+/* ==========================================================================
+   YouTube MP3 - Online Video Converter
+   Authentic Classic Web 2.0 Utility Aesthetic (Clean, Lightweight, Fast)
+   ========================================================================== */
+
+:root {
+  --bg-color: #ffffff;
+  --text-main: #333333;
+  --text-muted: #555555;
+  --link-color: #0084c7;
+  --link-hover: #006aa6;
+  --header-border: #e8ecf1;
+  --card-bg: #f2f5f8;
+  --card-border: #dbe2ea;
+  --input-border: #b8c7d6;
+  --input-focus: #0084c7;
+  --btn-primary: #0084c7;
+  --btn-primary-hover: #0070a8;
+  --ribbon-bg: #0084c7;
+  --ribbon-active: #006699;
+  --divider-color: #d0d7de;
+  --preview-bg: #ffffff;
+  --preview-border: #d8e2ed;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1d21;
+  --text-main: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --link-color: #38bdf8;
+  --link-hover: #7dd3fc;
+  --header-border: #2d3748;
+  --card-bg: #22262c;
+  --card-border: #333b47;
+  --input-border: #4a5568;
+  --input-focus: #38bdf8;
+  --btn-primary: #0284c7;
+  --btn-primary-hover: #0369a1;
+  --ribbon-bg: #0284c7;
+  --ribbon-active: #0369a1;
+  --divider-color: #4a5568;
+  --preview-bg: #292e36;
+  --preview-border: #3d4654;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Header Navigation
+   ========================================================================== */
+.site-header {
+  border-bottom: 1px solid var(--header-border);
+  padding: 12px 20px;
+  background-color: var(--bg-color);
+}
+
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  font-size: 14.5px;
+}
+
+.nav-link {
+  color: var(--link-color);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: var(--link-color);
+}
+
+/* Language Dropdown */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--link-color);
+  font-size: 14.5px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+}
+
+.lang-btn:hover {
+  color: var(--link-hover);
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg-color);
+  border: 1px solid var(--header-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
+  z-index: 50;
+  padding: 6px 0;
+}
+
+.lang-menu.show {
+  display: block;
+}
+
+.lang-menu a {
+  display: block;
+  padding: 6px 14px;
+  color: var(--text-main);
+  font-size: 13.5px;
+  text-decoration: none;
+}
+
+.lang-menu a:hover {
+  background-color: var(--card-bg);
+  color: var(--link-color);
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+  background: none;
+  border: none;
+  color: var(--link-color);
+  cursor: pointer;
+  font-size: 17px;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.theme-btn:hover {
+  color: var(--link-hover);
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+.main-wrapper {
+  flex: 1;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px 50px;
+}
+
+/* Logo Section */
+.logo-area {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.site-logo {
+  max-width: 440px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Converter Box (Exact Matching Screenshot)
+   ========================================================================== */
+.converter-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.converter-inner {
+  padding: 22px 22px 18px;
+}
+
+.converter-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--link-color);
+  margin-bottom: 12px;
+}
+
+.converter-form {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--input-border);
+  border-radius: 2px;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.converter-form:focus-within {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 1px var(--input-focus);
+}
+
+.converter-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: #111;
+  background: transparent;
+}
+
+.converter-input::placeholder {
+  color: #94a3b8;
+}
+
+.btn-convert {
+  background-color: var(--btn-primary);
+  color: #ffffff;
+  border: none;
+  padding: 0 24px;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-convert:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+.btn-convert:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Bottom Format Ribbon (mp3 / mp4 tabs) */
+.format-ribbon {
+  display: flex;
+  background-color: var(--ribbon-bg);
+  padding: 0;
+  margin: 0;
+  height: 38px;
+}
+
+.format-tab {
+  flex: 0 0 auto;
+  width: 76px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.format-tab:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.format-tab.active {
+  background-color: var(--ribbon-active);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   Video Conversion Preview & Results Area
+   ========================================================================== */
+.status-message {
+  display: none;
+  margin: 15px 0 0;
+  padding: 10px 14px;
+  border-radius: 3px;
+  font-size: 13.5px;
+}
+
+.status-message.error {
+  display: block;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.status-message.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #bae6fd;
+  border-top-color: #0284c7;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.result-card {
+  display: none;
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--preview-bg);
+  border: 1px solid var(--preview-border);
+  border-radius: 3px;
+}
+
+.result-content {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.result-thumb {
+  width: 120px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: 3px;
+  background-color: #000;
+  flex-shrink: 0;
+}
+
+.result-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.result-author {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-download-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #16a34a;
+  color: #ffffff;
+  padding: 7px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn-download-action:hover {
+  background-color: #15803d;
+  text-decoration: none;
+}
+
+.btn-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary);
+  color: #ffffff;
+  padding: 7px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-secondary-action:hover {
+  background-color: var(--btn-primary-hover);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Small Center Divider
+   ========================================================================== */
+.center-divider {
+  width: 38px;
+  height: 4px;
+  background-color: var(--divider-color);
+  border-radius: 2px;
+  margin: 32px auto 26px;
+}
+
+/* ==========================================================================
+   Editorial Content / Description (Exact Matching Screenshot)
+   ========================================================================== */
+.content-section {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.content-title {
+  font-size: 32px;
+  font-weight: 300;
+  text-align: center;
+  color: var(--text-main);
+  margin-bottom: 22px;
+  letter-spacing: -0.5px;
+}
+
+.content-section p {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.steps-list {
+  list-style: none;
+  margin: 16px 0;
+  padding-left: 0;
+}
+
+.steps-list li {
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.closing-text {
+  margin-top: 18px;
+  text-align: left !important;
+}
+
+/* ==========================================================================
+   Footer & Natural Backlink Anchor
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--header-border);
+  padding: 22px 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  background-color: var(--bg-color);
+  margin-top: auto;
+}
+
+.footer-links {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-credits {
+  font-size: 12.5px;
+  color: #888888;
+}
+
+.footer-credits a {
+  color: var(--link-color);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 600px) {
+  .nav-container {
+    gap: 16px;
+    font-size: 13.5px;
+  }
+  
+  .converter-inner {
+    padding: 16px 14px 14px;
+  }
+  
+  .converter-form {
+    flex-direction: column;
+  }
+  
+  .btn-convert {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .result-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .result-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}

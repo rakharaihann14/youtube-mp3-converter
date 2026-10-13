@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 130" width="460" height="130">
+  <defs>
+    <!-- Shark Gradient -->
+    <linearGradient id="sharkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2196f3"/>
+      <stop offset="60%" stop-color="#0288d1"/>
+      <stop offset="100%" stop-color="#01579b"/>
+    </linearGradient>
+    <linearGradient id="sharkBelly" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e1f5fe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shark Mascot Group (Centered Top Behind / Peeking) -->
+  <g transform="translate(230, 8)">
+    <!-- Dorsal Fin Back -->
+    <path d="M-8,12 C-15,-6 -25,-18 -42,-22 C-38,-6 -22,12 -12,25 Z" fill="#0277bd" />
+    
+    <!-- Shark Body -->
+    <path d="M-40,65 C-42,40 -35,15 -15,0 C5,-10 32,-8 48,10 C62,26 66,48 58,70 C45,78 0,82 -40,65 Z" fill="url(#sharkGrad)" />
+    
+    <!-- White Belly / Chin -->
+    <path d="M-22,60 C-18,48 -10,40 5,38 C22,36 38,45 42,62 C25,72 -5,72 -22,60 Z" fill="url(#sharkBelly)" />
+    
+    <!-- Shark Grin / Teeth -->
+    <path d="M-12,50 Q10,65 32,48" fill="none" stroke="#01579b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="-5,50 -2,56 1,51" fill="#fff" stroke="#01579b" stroke-width="0.8" />
+    <polygon points="5,52 8,58 11,53" fill="#fff" stroke="#01579b" stroke-width="0.8" />
+    <polygon points="15,53 18,59 21,53" fill="#fff" stroke="#01579b" stroke-width="0.8" />
+    <polygon points="25,51 27,56 30,50" fill="#fff" stroke="#01579b" stroke-width="0.8" />
+
+    <!-- Eye (Friendly & Confident) -->
+    <circle cx="8" cy="22" r="7" fill="#ffffff" stroke="#01579b" stroke-width="1.5" />
+    <circle cx="9" cy="21" r="3.5" fill="#111" />
+    <circle cx="11" cy="19" r="1.5" fill="#fff" />
+
+    <!-- Headphones Band -->
+    <path d="M-26,24 C-24,-12 2,-22 36,-10 C50,-2 52,15 48,26" fill="none" stroke="#263238" stroke-width="6.5" stroke-linecap="round" />
+    <!-- Left Earcup -->
+    <rect x="-34" y="20" width="12" height="22" rx="6" fill="#37474f" stroke="#eceff1" stroke-width="1.5" />
+    <!-- Right Earcup -->
+    <rect x="42" y="20" width="12" height="22" rx="6" fill="#37474f" stroke="#eceff1" stroke-width="1.5" />
+
+    <!-- Fin in Front (Wave) -->
+    <path d="M28,45 C45,45 58,58 64,68 C50,68 38,58 28,45 Z" fill="#0288d1" />
+  </g>
+
+  <!-- Typography: YOUTUBE MP3 -->
+  <g transform="translate(15, 96)">
+    <!-- YOUTUBE in Bold Blue -->
+    <text x="60" y="0" font-family="'Arial Black', Impact, sans-serif" font-size="44" font-style="italic" font-weight="900" fill="#0084c7" letter-spacing="-1">YOUTUBE</text>
+    
+    <!-- MP3 in Deep Charcoal -->
+    <text x="295" y="0" font-family="'Arial Black', Impact, sans-serif" font-size="44" font-style="italic" font-weight="900" fill="#37474f" letter-spacing="-1">MP3</text>
+  </g>
+
+  <!-- Subtitle: Online Video Converter -->
+  <g transform="translate(155, 118)">
+    <text x="0" y="0" font-family="'Brush Script MT', 'Lucida Calligraphy', cursive, sans-serif" font-size="18" font-style="italic" fill="#78909c">Online Video Converter</text>
+  </g>
+</svg>
